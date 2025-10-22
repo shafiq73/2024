@@ -60,5 +60,11 @@ The goal of this project is to:
 
 * **Notebook name:** `14_Keggalgoogle_EDA.ipynb`
 * **Dataset source:** Kaggle (Google Playstore Apps dataset)
-* **Author:** [shafiq73]([https://gi](https://gi)
+📬 Contact
+
+
+
+For collaboration or feedback:
+📧 shafiqahmed73@gmail.com
+🔗 GitHub: shafiq73
 
