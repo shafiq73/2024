@@ -130,4 +130,222 @@ This repository reflects my **learning journey and practical experience** in dat
 ⭐ If you find this repository useful, feel free to **star** it!
 
 
+✅ 1️⃣ Spaceship Titanic (Machine Learning)
+
+📁 Keggle002_Spaceship_Titanic_main.ipynb
+
+# 🚀 Spaceship Titanic – Machine Learning Project
+
+## 📌 Project Overview
+This project is based on the Kaggle **Spaceship Titanic** competition.  
+The goal is to predict whether a passenger was **Transported** to another dimension using machine learning.
+
+---
+
+## 🎯 Objective
+To build an accurate classification model by:
+- Cleaning missing data
+- Performing feature engineering
+- Training and evaluating ML models
+
+---
+
+## 📊 Dataset
+- Source: Kaggle
+- Type: Tabular CSV data
+- Target Variable: `Transported`
+
+---
+
+## 🛠 Tools & Libraries
+- Python
+- Pandas & NumPy
+- Matplotlib & Seaborn
+- Scikit-learn
+
+---
+
+## 🔍 Workflow
+1. Data Cleaning & Missing Value Handling
+2. Exploratory Data Analysis (EDA)
+3. Feature Engineering
+4. Encoding Categorical Variables
+5. Model Training
+6. Model Evaluation & Prediction
+
+---
+
+## 🤖 Models Used
+- Logistic Regression
+- Random Forest
+- Gradient Boosting
+
+---
+
+## 📈 Results
+- Achieved competitive accuracy
+- Improved performance through feature engineering
+
+---
+
+## 👤 Author
+Shafiq Ahmed  
+GitHub: https://github.com/shafiq73
+
+2️⃣ Life Expectancy Data Analysis
+
+📁 Life_expentacy.ipynb
+
+# 🌍 Life Expectancy Data Analysis
+
+## 📌 Project Description
+This project analyzes **life expectancy trends across countries** using real-world health data.
+
+---
+
+## 🎯 Objectives
+- Understand global life expectancy patterns
+- Analyze impact of health and economic factors
+- Visualize trends and correlations
+
+---
+
+## 📊 Dataset
+- Source: WHO
+- Features include:
+  - Life Expectancy
+  - GDP
+  - Adult Mortality
+  - Education & Health indicators
+
+---
+
+## 🛠 Tools Used
+- Python
+- Pandas
+- NumPy
+- Matplotlib & Seaborn
+
+---
+
+## 🔍 Analysis Steps
+1. Data Cleaning
+2. Handling Missing Values
+3. Correlation Analysis
+4. Data Visualization
+5. Insight Generation
+
+---
+
+## 📈 Key Insights
+- Higher GDP generally increases life expectancy
+- Adult mortality has strong negative correlation
+
+---
+
+## 👤 Author
+Shafiq Ahmed  
+GitHub: https://github.com/shafiq73
+
+
+3️⃣ House Prices – Advanced Regression
+
+📁 house_prices_advanced_regression.ipynb
+
+# 🏠 House Prices – Advanced Regression Analysis
+
+## 📌 Project Overview
+This project focuses on predicting house prices using **advanced regression techniques**.
+
+---
+
+## 🎯 Objective
+To build a regression model that accurately predicts house prices based on multiple features.
+
+---
+
+## 📊 Dataset
+- Source: Kaggle
+- Target Variable: `SalePrice`
+- Includes numerical and categorical features
+
+---
+
+## 🛠 Tools & Libraries
+- Python
+- Pandas & NumPy
+- Scikit-learn
+- Matplotlib & Seaborn
+
+---
+
+## 🔍 Workflow
+1. Data Preprocessing
+2. Feature Selection
+3. Encoding & Scaling
+4. Model Training
+5. Model Evaluation
+
+---
+
+## 📈 Results
+- Reduced error using feature engineering
+- Improved model accuracy with regression techniques
+
+---
+
+## 👤 Author
+Shafiq Ahmed  
+GitHub: https://github.com/shafiq73
+
+4️⃣ Pakistan Population Analysis
+
+📁 pak_population.ipynb
+
+# 🇵🇰 Pakistan Population Data Analysis
+
+## 📌 Project Description
+This project analyzes Pakistan’s population growth and demographic trends using Python.
+
+---
+
+## 🎯 Objectives
+- Study population growth patterns
+- Visualize trends over time
+- Understand demographic changes
+
+---
+
+## 📊 Dataset
+- Source: Public population datasets
+- Data includes yearly population records
+
+---
+
+## 🛠 Tools Used
+- Python
+- Pandas
+- Matplotlib
+
+---
+
+## 🔍 Analysis Steps
+1. Data Loading & Cleaning
+2. Trend Analysis
+3. Visualization
+4. Interpretation of Results
+
+---
+
+## 📈 Key Insights
+- Continuous population growth
+- Visual trends highlight rapid increase over years
+
+---
+
+## 👤 Author
+Shafiq Ahmed  
+GitHub: https://github.com/shafiq73
+
+
 
