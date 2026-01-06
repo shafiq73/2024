@@ -40,17 +40,8 @@ You already have some projects that already include READMEs:
 - `.csv` data files — e.g., `googleplaystore.csv`, `amazon.csv`, etc.  
 - PDFs and reports — e.g., `Pandas_Cheat_Sheet.pdf`, analysis HTML reports
 
----
 
-## 💡 Recommended Next Steps
 
-🟢 **Add descriptions to each notebook project**  
-Use sections like:
-- 🧾 Project Description
-- 📊 Objective
-- 🛠 Tools & Libraries
-- 🔍 Key Findings
 
-Sample section you can add at the start of each notebook:
 
 
