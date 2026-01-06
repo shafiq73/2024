@@ -123,7 +123,7 @@ This repository reflects my **learning journey and practical experience** in dat
 ## 📫 Contact & Links
 
 - GitHub: https://github.com/shafiq73
-- Kaggle: https://kaggle.com/shafiq73
+- Kaggle: https://kaggle.com/shafiqahmed73
 
 ---
 
