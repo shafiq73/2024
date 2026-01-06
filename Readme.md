@@ -43,6 +43,15 @@ GitHub Profile 👉 https://github.com/shafiq73
 
 ---
 
+## Featured Projects
+1. Spaceship Titanic (ML)
+2. Life Expectancy Analysis
+3. House Prices Regression
+4. Google Play Store EDA
+5. Pakistan Population Analysis
+6. Another Project
+
+
 ## 📂 Repository Structure & Projects
 
 ### 📊 Exploratory Data Analysis (EDA)
