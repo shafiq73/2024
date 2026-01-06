@@ -1,0 +1,925 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Data Visualization\n",
+    "\n",
+    "#dataviz #datavisualization #codancis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import libraries\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import titanic data from seaborn library\n",
+    "df = sns.load_dataset('titanic')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.plot(kind='scatter', x='age', y='fare')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.plot(kind='scatter', x='age', y='fare', color = 'red')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# change colors using hex codes\n",
+    "df.plot(kind='scatter', x='age', y='fare', color = '#FE7F0E')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.groupby('sex')['fare'].mean().plot(kind='bar')\n",
+    "plt.ylabel('Average Fare')\n",
+    "plt.xlabel('Gender')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# seaborn plots\n",
+    "\n",
+    "# bar plot using seaborn on df\n",
+    "sns.barplot(data = df, x= 'survived', y = 'fare')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sns.scatterplot(data = df, y= 'fare', x = 'age', hue='class')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# make scatter plot via plotly\n",
+    "import plotly.express as px\n",
+    "\n",
+    "fig = px.scatter(df, x='age', y='fare', color='class')\n",
+    "fig.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import plotly.graph_objects as go\n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "# Read data from a csv\n",
+    "z_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv')\n",
+    "\n",
+    "fig = go.Figure(data=[go.Surface(z=z_data.values)])\n",
+    "\n",
+    "fig.update_layout(title='Mt Bruno Elevation', autosize=False,\n",
+    "                  width=500, height=500,\n",
+    "                  margin=dict(l=65, r=50, b=65, t=90))\n",
+    "\n",
+    "fig.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import plotly.express as px\n",
+    "df = px.data.gapminder()\n",
+    "px.scatter(df, x=\"gdpPercap\", y=\"lifeExp\", animation_frame=\"year\", animation_group=\"country\",\n",
+    "           size=\"pop\", color=\"continent\", hover_name=\"country\",\n",
+    "           log_x=True, size_max=55, range_x=[100,100000], range_y=[25,90])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Assignment:\n",
+    "\n",
+    "1. Read the documentation of each website: `pandas, matplotlib, seabron and plotly`\n",
+    "2. Make 10 different plots on different datasets each time using each of these four libraries.\n",
+    "3. Interpret them and provide the insights you take from each plot in 3-4 lines.\n",
+    "4. Finalize one notebook and send it to me via discord.\n",
+    "\n",
+    "✅[Our Discord group of Current Course](https://discord.gg/QpvUKEtUJD)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Plot Types:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1. Bar Chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import pandas and matplotlib.pyplot libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# create a dictionary with sample data\n",
+    "data = {'Products': ['Product A', 'Product B', 'Product C'],\n",
+    "    'Sales': [100, 150, 80]}\n",
+    "\n",
+    "# create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# plot the dataframe as a bar chart\n",
+    "df.plot(x='Products', y='Sales', kind='bar', legend=False)\n",
+    "\n",
+    "# set the y-axis label\n",
+    "plt.ylabel('Sales')\n",
+    "\n",
+    "# set the title of the plot\n",
+    "plt.title('Sales of different products')\n",
+    "\n",
+    "# save the plot to a file\n",
+    "plt.savefig('./outputs/plots/bar_chart.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# display the plot\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 2. Pie Chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import pandas and matplotlib.pyplot libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# create a dictionary with sample data\n",
+    "data = {'Products': ['Product A', 'Product B', 'Product C'],\n",
+    "        'Sales': [100, 150, 80]}\n",
+    "\n",
+    "# create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# plot the dataframe as a pie chart\n",
+    "df.set_index('Products')['Sales'].plot(kind='pie', autopct='%1.1f%%', startangle=90)\n",
+    "\n",
+    "# set the title of the plot\n",
+    "plt.title('Sales distribution of different products')\n",
+    "\n",
+    "# save the plot to a file\n",
+    "plt.savefig('./outputs/plots/pie_chart.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# display the plot\n",
+    "plt.ylabel('')  # This is to remove the 'Sales' ylabel which is unnecessary in a pie chart\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. Histogram"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import pandas and matplotlib.pyplot libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# create a dictionary with sample data\n",
+    "data = {'Sales': [30,50,120,150,200,300,100, 150, 80, 120, 140, 130, \n",
+    "                  50,50,30,20,10,50,35,45,55,50,55,65,56,58,58,54,55,50,5,\n",
+    "                  110, 145, 105, 90, 115, 125, 135, 85, 95]}\n",
+    "\n",
+    "# create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# plot the dataframe as a histogram\n",
+    "df['Sales'].plot(kind='hist', bins=5, edgecolor='black')\n",
+    "\n",
+    "# set the x-axis and y-axis labels\n",
+    "plt.xlabel('Sales Value')\n",
+    "plt.ylabel('Number of Transactions')\n",
+    "\n",
+    "# set the title of the plot\n",
+    "plt.title('Distribution of Sales Transactions')\n",
+    "\n",
+    "# save the plot to a file\n",
+    "plt.savefig('./outputs/plots/histogram.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Scatter Plot"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import pandas and matplotlib.pyplot libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# create a dictionary with sample data\n",
+    "data = {\n",
+    "    'Sales': [100, 150, 80, 120, 140, 130, 110, 145, 105, 90],\n",
+    "    'Profit': [50, 70, 40, 60, 75, 65, 55, 72, 52, 45]\n",
+    "}\n",
+    "\n",
+    "# create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# plot the dataframe as a scatter plot\n",
+    "df.plot(x='Sales', y='Profit', kind='scatter')\n",
+    "\n",
+    "# set the x-axis and y-axis labels\n",
+    "plt.xlabel('Sales Value')\n",
+    "plt.ylabel('Profit Value')\n",
+    "\n",
+    "# set the title of the plot\n",
+    "plt.title('Relationship between Sales and Profit')\n",
+    "\n",
+    "# save the plot to a file\n",
+    "plt.savefig('./outputs/plots/scatter_plot.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 5. line chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import pandas and matplotlib.pyplot libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# create a dictionary with sample data\n",
+    "data = {\n",
+    "    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],\n",
+    "    'Monthly Sales': [100, 110, 105, 115, 120, 125, 130, 135, 140, 145, 150, 155]\n",
+    "}\n",
+    "\n",
+    "# create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# plot the dataframe as a line chart\n",
+    "df.plot(x='Month', y='Monthly Sales', kind='line', marker='o')\n",
+    "\n",
+    "# set the x-axis and y-axis labels\n",
+    "plt.xlabel('Month')\n",
+    "plt.ylabel('Sales Value')\n",
+    "\n",
+    "# set the title of the plot\n",
+    "plt.title('Monthly Sales Trend over a Year')\n",
+    "\n",
+    "# save the plot to a file\n",
+    "plt.savefig('./outputs/plots/line_chart.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 6. Heatmap"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "\n",
+    "# Sample correlation matrix\n",
+    "data = {\n",
+    "    'Product A': [1, 0.6, 0.8, 0.3],\n",
+    "    'Product B': [0.6, 1, 0.5, 0.7],\n",
+    "    'Product C': [0.8, 0.5, 1, 0.4],\n",
+    "    'Product D': [0.3, 0.7, 0.4, 1]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Plotting the heatmap\n",
+    "plt.figure(figsize=(8, 6))\n",
+    "sns.heatmap(df, annot=True, cmap='viridis', vmin=0, vmax=1)\n",
+    "\n",
+    "# Set the title of the plot\n",
+    "plt.title('Product Correlation Heatmap')\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/heatmap.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 7. Box Plot"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'Product A': [95, 85, 90, 100, 105, 110],\n",
+    "    'Product B': [100, 105, 95, 90, 115, 120],\n",
+    "    'Product C': [105, 110, 115, 120, 125, 130]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Plotting the boxplot\n",
+    "df.boxplot(grid=False, vert=True, fontsize=10)\n",
+    "\n",
+    "# Set the title of the plot\n",
+    "plt.title('Sales Distribution by Product')\n",
+    "\n",
+    "# Set the y-axis label\n",
+    "plt.ylabel('Sales Value')\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/boxplot.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# we can do the same thing with seaborn library as follows\n",
+    "\n",
+    "# import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'Product A': [95, 85, 90, 100, 105, 110],\n",
+    "    'Product B': [100, 105, 95, 90, 115, 120],\n",
+    "    'Product C': [105, 110, 115, 120, 125, 130]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Plotting the boxplot using seaborn\n",
+    "plt.figure(figsize=(10, 6))\n",
+    "sns.boxplot(data=df)\n",
+    "\n",
+    "# Set the title of the plot\n",
+    "plt.title('Sales Distribution by Product')\n",
+    "\n",
+    "# Set the y-axis label\n",
+    "plt.ylabel('Sales Value')\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/sns_boxplot.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 8. Area Chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May'],\n",
+    "    'Sales': [100, 150, 180, 220, 270]  # Accumulated sales for demonstration\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Plotting the area chart\n",
+    "plt.figure(figsize=(10, 6))\n",
+    "sns.set_style(\"whitegrid\")\n",
+    "plt.fill_between(df['Month'], df['Sales'], color=\"skyblue\", alpha=0.4)\n",
+    "plt.plot(df['Month'], df['Sales'], color=\"Slateblue\", alpha=0.6)\n",
+    "\n",
+    "# Set the title, x-axis and y-axis labels\n",
+    "plt.title('Monthly Accumulated Sales')\n",
+    "plt.xlabel('Month')\n",
+    "plt.ylabel('Accumulated Sales Value')\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/area_chart.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 9. Spider Chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'Metrics': ['Metric A', 'Metric B', 'Metric C', 'Metric D', 'Metric E'],\n",
+    "    'Product 1': [3, 4, 5, 4, 2],\n",
+    "    'Product 2': [4, 5, 4, 3, 3]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Number of variables\n",
+    "categories = list(df['Metrics'])\n",
+    "N = len(categories)\n",
+    "\n",
+    "# Set the angle for each metric's axis\n",
+    "angles = [n / float(N) * 2 * np.pi for n in range(N)]\n",
+    "angles += angles[:1]\n",
+    "\n",
+    "# Initialize the spider plot\n",
+    "plt.figure(figsize=(8, 6))\n",
+    "ax = plt.subplot(111, polar=True)\n",
+    "\n",
+    "# Plotting for Product 1\n",
+    "values = df['Product 1'].tolist()\n",
+    "values += values[:1]  # Repeat the first value to close the circular graph\n",
+    "ax.plot(angles, values, linewidth=2, linestyle='solid', label='Product 1')\n",
+    "ax.fill(angles, values, 'b', alpha=0.1)\n",
+    "\n",
+    "# Plotting for Product 2\n",
+    "values = df['Product 2'].tolist()\n",
+    "values += values[:1]  # Repeat the first value to close the circular graph\n",
+    "ax.plot(angles, values, linewidth=2, linestyle='solid', label='Product 2')\n",
+    "ax.fill(angles, values, 'r', alpha=0.1)\n",
+    "\n",
+    "# Add the axis labels\n",
+    "plt.xticks(angles[:-1], categories, color='grey', size=12)\n",
+    "ax.set_rlabel_position(30)\n",
+    "plt.yticks([1,2,3,4,5], [\"1\",\"2\",\"3\",\"4\",\"5\"], color=\"grey\", size=8)\n",
+    "plt.ylim(0, 5)\n",
+    "\n",
+    "# Add title and legend\n",
+    "plt.title('Comparison between Product 1 and Product 2 on various metrics')\n",
+    "ax.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/radar_chart.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 10. Tree Map"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# pip install squarify"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required libraries\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import squarify # install if you do not have it\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'File Type': ['Documents', 'Videos', 'Images', 'Audio', 'Other'],\n",
+    "    'Storage Used (GB)': [50, 150, 80, 60, 10]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Plotting the treemap\n",
+    "plt.figure(figsize=(12, 8))\n",
+    "colors = ['red', 'green', 'blue', 'yellow', 'grey']\n",
+    "squarify.plot(sizes=df['Storage Used (GB)'], label=df['File Type'], color=colors, alpha=0.6)\n",
+    "\n",
+    "# Add title\n",
+    "plt.title('Storage Used by File Type')\n",
+    "plt.axis('off')  # Turn off the axis\n",
+    "\n",
+    "# Save the plot to a file\n",
+    "plt.savefig('./outputs/plots/treemap.png', dpi=300, bbox_inches='tight')\n",
+    "\n",
+    "# Display the plot\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 11. Geographical Maps"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# pip install -U kaleido"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required libraries\n",
+    "import plotly.graph_objects as go\n",
+    "\n",
+    "# Data for cities and their coordinates\n",
+    "cities = {\n",
+    "    'New York': [40.7128, -74.0060],\n",
+    "    'London': [51.5074, -0.1278],\n",
+    "    'Sydney': [-33.8688, 151.2093],\n",
+    "    'Tokyo': [35.6895, 139.6917],\n",
+    "    'Rio de Janeiro': [-22.9068, -43.1729]\n",
+    "}\n",
+    "\n",
+    "# Extracting latitudes, longitudes, and city names for plotting\n",
+    "lats = [coords[0] for coords in cities.values()]\n",
+    "longs = [coords[1] for coords in cities.values()]\n",
+    "names = list(cities.keys())\n",
+    "\n",
+    "# Creating the Scattergeo plot\n",
+    "fig = go.Figure(data=go.Scattergeo(\n",
+    "    lon = longs,\n",
+    "    lat = lats,\n",
+    "    text = names,\n",
+    "    mode = 'markers',\n",
+    "    marker = dict(\n",
+    "        size = 10,\n",
+    "        opacity = 0.8,\n",
+    "        reversescale = True,\n",
+    "        autocolorscale = False,\n",
+    "        symbol = 'circle',\n",
+    "        line = dict(\n",
+    "            width=1,\n",
+    "            color='rgba(102, 102, 102)'\n",
+    "        ),\n",
+    "    )\n",
+    "))\n",
+    "\n",
+    "# Setting the layout for the map\n",
+    "fig.update_layout(\n",
+    "    title = 'Cities on World Map using Plotly',\n",
+    "    geo = dict(\n",
+    "        scope='world',\n",
+    "        showland = True,\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "# Display the map\n",
+    "fig.show()\n",
+    "\n",
+    "# Save the map to an HTML file\n",
+    "fig.write_html(\"./outputs/plots/world_map_plotly.html\")\n",
+    "\n",
+    "# save as png with 300 dpi\n",
+    "fig.write_image(\"./outputs/plots/world_map_plotly.png\", scale=3)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 12. Time series"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required libraries\n",
+    "import plotly.graph_objects as go\n",
+    "import pandas as pd\n",
+    "\n",
+    "# Sample time series data\n",
+    "data = {\n",
+    "    'Date': ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04', '2022-01-05'],\n",
+    "    'Value': [10, 15, 7, 12, 10]\n",
+    "}\n",
+    "\n",
+    "# Create a pandas dataframe from the dictionary\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Convert the 'Date' column to a datetime object for better handling\n",
+    "df['Date'] = pd.to_datetime(df['Date'])\n",
+    "\n",
+    "# Creating the time series plot\n",
+    "fig = go.Figure(data=go.Scatter(x=df['Date'], y=df['Value'], mode='lines+markers'))\n",
+    "\n",
+    "# Setting the layout for the plot\n",
+    "fig.update_layout(\n",
+    "    title='Time Series Plot using Plotly',\n",
+    "    xaxis_title='Date',\n",
+    "    yaxis_title='Value',\n",
+    "    xaxis=dict(showline=True, showgrid=False, showticklabels=True),\n",
+    "    yaxis=dict(zeroline=False, showgrid=True, showline=False, showticklabels=True),\n",
+    ")\n",
+    "\n",
+    "# Display the plot\n",
+    "fig.show()\n",
+    "\n",
+    "# Save the plot to an HTML file\n",
+    "fig.write_html(\"./outputs/plots/time_series_plotly.html\")\n",
+    "\n",
+    "# save as png\n",
+    "fig.write_image(\"./outputs/plots/time_series_plotly.png\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 13. Bubble Chart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required libraries\n",
+    "import plotly.graph_objects as go\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'X': [10, 20, 30, 40, 50],\n",
+    "    'Y': [15, 25, 35, 45, 55],\n",
+    "    'Size': [30, 60, 90, 120, 150],  # Determines the size of bubbles\n",
+    "    'Labels': ['A', 'B', 'C', 'D', 'E']\n",
+    "}\n",
+    "\n",
+    "# Creating the bubble chart\n",
+    "fig = go.Figure(data=go.Scatter(\n",
+    "    x=data['X'],\n",
+    "    y=data['Y'],\n",
+    "    mode='markers',\n",
+    "    text=data['Labels'],\n",
+    "    marker=dict(\n",
+    "        size=data['Size'],\n",
+    "        sizemode='diameter',  # 'diameter' ensures that the size values correspond to the diameter of the bubbles\n",
+    "        opacity=0.6,\n",
+    "        color=data['Y'],  # Coloring the bubbles based on Y values\n",
+    "        colorscale='Viridis',\n",
+    "        colorbar=dict(title='Colorbar')\n",
+    "    )\n",
+    "))\n",
+    "\n",
+    "# Setting the layout for the plot\n",
+    "fig.update_layout(\n",
+    "    title='Bubble Chart using Plotly',\n",
+    "    xaxis_title='X Values',\n",
+    "    yaxis_title='Y Values',\n",
+    "    showlegend=False\n",
+    ")\n",
+    "\n",
+    "# Display the plot\n",
+    "fig.show()\n",
+    "\n",
+    "# Save the plot to an HTML file\n",
+    "fig.write_html(\"./outputs/plots/bubble_chart_plotly.html\")\n",
+    "\n",
+    "# save png file with 300 dpi\n",
+    "fig.write_image(\"./outputs/plots/bubble_chart_plotly.png\", scale=3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 14. Violin Plot\n",
+    "\n",
+    "A violin plot is similar to a box plot but also includes a rotated kernel density plot on each side. It provides a visualization of the distribution of the data, its probability density, and its cumulative distribution.\n",
+    "\n",
+    "Here's how to create a violin plot using Plotly:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required libraries\n",
+    "import plotly.express as px\n",
+    "\n",
+    "# Sample data\n",
+    "data = {\n",
+    "    'Category': ['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C'],\n",
+    "    'Values': [10, 15, 5, 25, 20, 10, 30, 25, 5, 20, 15, 10]\n",
+    "}\n",
+    "\n",
+    "# Creating the violin plot using plotly express\n",
+    "fig = px.violin(data, y=\"Values\", x=\"Category\", box=True, points=\"all\")\n",
+    "\n",
+    "# Setting the layout for the plot\n",
+    "fig.update_layout(\n",
+    "    title='Violin Plot using Plotly',\n",
+    "    yaxis_title='Values',\n",
+    "    xaxis_title='Category'\n",
+    ")\n",
+    "\n",
+    "# Display the plot\n",
+    "fig.show()\n",
+    "\n",
+    "# Save the plot to an HTML file\n",
+    "fig.write_html(\"./outputs/plots/violin_plot_plotly.html\")\n",
+    "\n",
+    "#save png file with 300 dpi\n",
+    "fig.write_image(\"./outputs/plots/violin_plot_plotly.png\", scale=3)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "python_eda",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
