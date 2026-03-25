@@ -1,1 +1,78 @@
+# 🩸 Blood Sugar Prediction & Risk Assessment Tool
 
+[![Python](https://img.shields.io/badge/python-3.x-blue)](https://www.python.org/)  
+[![Gradio](https://img.shields.io/badge/gradio-interface-green)](https://gradio.app/)
+
+---
+
+## 📌 Project Description
+This Python project predicts **blood sugar status** (`Normal`, `Pre-Diabetes`, `Diabetes`) using **FBS, RBS, HbA1c**, and calculates a **risk factor score** based on **Age, BMI, Blood Pressure, Exercise, Family History, and Smoking**.  
+
+Key features:
+- Batch processing of patient data via **CSV files**  
+- Generates **QR codes** for WhatsApp or other actions  
+- User-friendly **Gradio web interface** for non-programmers  
+- Ideal for **healthcare practitioners, students, and Python beginners**  
+
+---
+
+## 🛠 Tools & Libraries Used
+- Python 3.x  
+- [Pandas](https://pandas.pydata.org/) – data processing  
+- [Gradio](https://gradio.app/) – interactive web interface  
+- [qrcode](https://pypi.org/project/qrcode/) – QR code generation  
+- Base64 & BytesIO – image encoding  
+
+---
+
+## 📌 Features & Functionalities
+Example:
+### 1️⃣ Blood Sugar Prediction
+```python
+def predict_blood_sugar(FBS, RBS, HbA1c):
+    if FBS >= 126 or RBS >= 200 or HbA1c >= 6.5:
+        return "Diabetes"
+    elif 100 <= FBS <= 125 or 141 <= RBS <= 199 or 5.7 <= HbA1c <= 6.4:
+        return "Pre-Diabetes"
+    else:
+        return "Normal"
+patient_1 = {"FBS": 110, "RBS": 130, "HbA1c": 5.9}
+predict_blood_sugar(**patient_1)
+# Output: "Pre-Diabetes"
+Extended Risk Factor Assessment
+def predict_blood_sugar_extended(FBS, RBS, HbA1c, Age, BMI, Systolic_BP, Diastolic_BP, Exercise, Family_History, Smoking):
+    result = predict_blood_sugar(FBS, RBS, HbA1c)
+    risk_factor = 0
+    if Age > 45: risk_factor += 1
+    if BMI >= 25: risk_factor += 1
+    if Systolic_BP >= 140 or Diastolic_BP >= 90: risk_factor += 1
+    risk_factor += Exercise + Family_History + Smoking
+    return result, risk_factor
+Calculates a risk factor score based on patient demographics and lifestyle.
+Helps identify high-risk patients early.
+patient = {"FBS":110, "RBS":150, "HbA1c":5.9, "Age":50, "BMI":28, "Systolic_BP":135, "Diastolic_BP":85, "Exercise":0, "Family_History":1, "Smoking":0}
+predict_blood_sugar_extended(**patient)
+# Output: ("Pre-Diabetes", 3)
+patient = {"FBS":110, "RBS":150, "HbA1c":5.9, "Age":50, "BMI":28, "Systolic_BP":135, "Diastolic_BP":85, "Exercise":0, "Family_History":1, "Smoking":0}
+predict_blood_sugar_extended(**patient)
+# Output: ("Pre-Diabetes", 3)
+def process_csv(file):
+    df = pd.read_csv(file)
+    # Clean missing values and convert Yes/No to numeric
+    # Predict Blood Sugar Status & Risk Factor
+    # Generate QR codes for WhatsApp links
+    return final_df
+
+Accepts CSV files with multiple patients.
+Adds Blood Sugar Status, Risk Factor Score, and QR Code (Base64).
+Saves output CSV as blood_sugar_results.csv.
+
+CSV Columns Required:
+FBS, RBS, HbA1c, Age, BMI, Systolic_BP, Diastolic_BP, Exercise, Family_History, Smoking
+
+Sample CSV:
+
+FBS	RBS	HbA1c	Age	BMI	Systolic_BP	Diastolic_BP	Exercise	Family_History	Smoking
+110	150	5.9	50	28	135	85	Yes	Yes	No
+90	120	5.5	30	22	120	80	Yes	No	No
+130	210	7.0	60	30	145	95	No	Yes
