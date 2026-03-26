@@ -17,6 +17,7 @@ df = sns.load_dataset('titanic')
 df.plot(kind='scatter', x='age', y='fare', title="Age vs Fare")
 plt.show()
 
+
 df.plot(kind='scatter', x='age', y='fare', color='red', title="Scatter Plot (Red)")
 plt.show()
 
