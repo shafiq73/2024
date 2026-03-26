@@ -7,49 +7,63 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 # ---------------------------------------------------------
-# Step 1: Model ko Train Karein (Kyunki importance tabhi milti hai jab model train ho)
+# Step 1: Model Training (Importance is generated post-training)
 # ---------------------------------------------------------
 
-# Maan lete hain aapne preprocess() function use karke ye variables banaye hain:
-# X_train, y_train (Preprocessing ke baad ka data)
-# features (un columns ke naam jinko aapne use kiya hai)
+# This step assumes you have used the preprocess() function to create:
+# X_train_processed: Feature matrix (DataFrame)
+# y_train: Target vector (Survival labels)
 
-# --- EXAMPLE setup agar aapke paas training code pehle se nahi hai ---
-# (Aap apne actual training code se is part ko replace kar sakte hain)
+# --- BOILERPLATE TRAINING CODE (Replace with your actual variables) ---
 # rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-# rf_model.fit(X_train, y_train.ravel()) # .ravel() use karein agar y_train 2D hai
+# rf_model.fit(X_train_processed, y_train.ravel()) 
 # ------------------------------------------------------------------
 
 
 # ---------------------------------------------------------
-# Step 2: Feature Importances Extract Karein
+# Step 2: Extract Feature Importances
 # ---------------------------------------------------------
-# Hum Random Forest use kar rahe hain, isme inbuilt 'feature_importances_' hota hai.
+# Random Forest includes an inbuilt 'feature_importances_' attribute.
 importances = rf_model.feature_importances_
 
-# Sabhi features ke names ki list (jis order mein model train hua tha)
-feature_names = X_train.columns # Ya aap apni custom list use karein
+# Get the list of feature names in the same order as training
+feature_names = X_train_processed.columns 
 
-# Ek DataFrame banayein taaki sort karne mein aasaani ho
+# Create a DataFrame for easy sorting and manipulation
 feature_imp_df = pd.DataFrame({'Feature': feature_names, 'Importance': importances})
 
-# DataFrame ko importance ke hisaab se descending order (sabse zyada pehle) mein sort karein
+# Sort the DataFrame in descending order (Most important features first)
 feature_imp_df = feature_imp_df.sort_values(by='Importance', ascending=False)
 
 
 # ---------------------------------------------------------
-# Step 3: Visualize Karein (Bar Chart)
+# Step 3: Visualization (Feature Importance Bar Chart)
 # ---------------------------------------------------------
-plt.figure(figsize=(12, 8)) # Chart ka size bada rakhein taaki labels saaf dikhein
+plt.figure(figsize=(12, 8)) # Set a large canvas for clear label visibility
 
-# Bar chart banayein: Features X-axis par aur Importance Y-axis par
+# Create a bar chart: Features on X-axis, Importance Score on Y-axis
 plt.bar(feature_imp_df['Feature'], feature_imp_df['Importance'], color='teal')
 
-# Labels aur Title lagayein
+# Set descriptive Labels and Title
 plt.xlabel('Features', fontsize=12)
 plt.ylabel('Importance Score', fontsize=12)
 plt.title('🚢 Titanic Survival Prediction: Feature Importance (Random Forest)', fontsize=15)
 
+# Rotate X-axis labels for better readability
+plt.xticks(rotation=45, ha='right')
+
+# Add grid lines for easier visual comparison of values
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Adjust layout to prevent clipping of text
+plt.tight_layout() 
+plt.show()
+
+# ---------------------------------------------------------
+# Step 4: Display Top Features in Text Format
+# ---------------------------------------------------------
+print("\n🔥 Top 5 Most Influential Features:")
+print(feature_imp_df.head(5).to_string(index=False))
 # X-axis ke labels ko rotate karein taaki wo readable ho (zyada features ke liye)
 plt.xticks(rotation=45, ha='right')
 
