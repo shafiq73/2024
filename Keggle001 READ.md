@@ -207,4 +207,8 @@ plt.show()
 1.  **Logistic Regression:** Shows **weight and direction**. Example: `Sex_male` will likely have a strong negative coefficient (meaning being male decreased survival chance).
 2.  **Random Forest:** Shows **predictive power**. It doesn't tell you "good" or "bad" for survival, just that the model relies heavily on that feature to make decisions.
 3.  **XGBoost:** Shows **efficiency/gain**. It highlights which features were best at splitting the data to reduce the loss function most effectively.
+4.  Model,Algorithm Type,Key Strength,Typical Accuracy
+Logistic Regression,Linear Classifier,Excellent baseline; highly interpretable.,~78-80%
+Random Forest,Ensemble (Bagging),Robust to outliers; prevents overfitting.,~81-83%
+XGBoost,Gradient Boosting,Optimized for high-speed & Kaggle rankings.,~83-85%+
 
