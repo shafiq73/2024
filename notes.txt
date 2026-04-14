@@ -1,0 +1,2 @@
+This is my Google Play Store project.
+It includes data cleaning, EDA, and Streamlit dashboard.
