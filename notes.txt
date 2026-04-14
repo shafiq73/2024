@@ -1,2 +1,6 @@
 This is my Google Play Store project.
 It includes data cleaning, EDA, and Streamlit dashboard.
+Google Play Store Dashboard Project
+- Data Cleaning done
+- EDA completed
+- Streamlit dashboard ready
